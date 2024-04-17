@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript BMI Calculator</title>
+</head>
+<body>
+    
+    <input type="number" id="num1" placeholder="Enter your height in meters">
+    <input type="number" id="num2" placeholder="Enter your weight in kg">
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <p id="bmiCalc"></p>
+
+    <script>
+        
+        function calculateBMI() {
+            let height = parseFloat(document.getElementById("num1").value);
+            let weight = parseFloat(document.getElementById("num2").value);
+
+            let bmi = weight / (height * height);
+
+            switch(true) {
+                case bmi < 18.5:
+                    document.getElementById("bmiCalc").innerHTML = "Under weight";
+                    break;
+                case bmi >= 18.5 && bmi < 24:
+                    document.getElementById("bmiCalc").innerHTML = "Normal weight";
+                    break;
+                case bmi >= 24 && bmi < 30:
+                    document.getElementById("bmiCalc").innerHTML = "Over weight";
+                    break;
+                case bmi >= 30 && bmi < 35:
+                    document.getElementById("bmiCalc").innerHTML = "Obese";
+                    break;
+                case bmi >= 35 && bmi < 40:
+                    document.getElementById("bmiCalc").innerHTML = "2nd degree obese";
+                    break;
+                case bmi >= 40:
+                    document.getElementById("bmiCalc").innerHTML = "3rd degree obese";
+                    break;
+                default:
+                    document.getElementById("bmiCalc").innerHTML = "Invalid input";
+            }
+        }
+    </script>
+
+</body>
+</html>
